@@ -2,7 +2,7 @@
 	"name" : "lsys/smssender",
 	"type" : "library",
 	"license": "Apache-2.0",
-	"version" : "1.0.0",
+	"version" : "2.0.0",
 	"description" : "lsys module smssender",
 	"autoload" : {
 		"psr-4" : {
@@ -14,10 +14,10 @@
 	},
 	"require" : {
 		"php" : ">=5.5",
-		"lsys/config" : "~1.0.0"
+		"lsys/config" : "~2.0.0"
 	},
 	"suggest": {
-		"lsys/smssender-alidayu" : "~1.0.0",
-		"lsys/smssender-yuntongxun" : "~1.0.0"
+		"lsys/smssender-alidayu" : "~2.0.0",
+		"lsys/smssender-yuntongxun" : "~2.0.0"
 	}
 }

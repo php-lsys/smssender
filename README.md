@@ -12,6 +12,6 @@ use LSYS\Config\File;
 include __DIR__."/Bootstarp.php";
 include __DIR__."/MyHandler.php";
 $config= new File("sms.myhandler");
-$sess=\LSYS\SMSSender\DI::get()->mailer();
+$sess=\LSYS\SMSSender\DI::get()->mailSender();
 var_dump($sender->send("13510460000","name_dome",array('code'=>'8888','time'=>'1')));
 ```

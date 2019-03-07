@@ -31,13 +31,13 @@ class SMSSender{
 		}
 		$this->_handler=new $handler($config);
 		$this->_config=$config;
-		$this->add_zone_check("86",array(Utils::class,"china_phone"));
+		$this->addZoneCheck("86",array(Utils::class,"chinaPhone"));
 	}
 	/**
 	 * get sms handler
 	 * @return \LSYS\SMSSender\Handler
 	 */
-	public function get_handler(){
+	public function getHandler(){
 		return $this->_handler;
 	}
 	/**
@@ -68,7 +68,7 @@ class SMSSender{
 	 * @param string $zone
 	 * @param callable $callback
 	 */
-	public function add_zone_check($zone,$callback){
+	public function addZoneCheck($zone,$callback){
 		if (!is_callable($callback))return false;
 		$this->_zone_check[$zone]=$callback;
 		return $this;

@@ -17,11 +17,8 @@ class Simple extends Render{
 	 */
 	public function body($name,array $values=array()){
 		$tpls=$this->_config->get("tpls",array());
-		if (!isset($tpls[$name])) throw new Exception(__("sms :name tpl not exist",array("name"=>$name)));
-		foreach ($values as $k=>$v){
-			$values[":".$k]=(string)$v;
-			unset($values[$k]);
-		}
+		if (!isset($tpls[$name])) throw new Exception(__("sms :name tpl not exist",array(":name"=>$name)));
+		$values=array_map('strval', $values);
 		return strtr($tpls[$name], $values);
 	}	
 }

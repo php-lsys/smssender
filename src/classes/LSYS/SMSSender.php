@@ -24,10 +24,10 @@ class SMSSender{
 	public function __construct(Config $config){
 		$handler=$config->get("handler",NULL);
 		if ($handler==null){
-		    throw new Exception ( __('smssender handler not defined in [:name] configuration',array("name"=>$config->name()) ));
+		    throw new Exception ( __('smssender handler not defined in [:name] configuration',array(":name"=>$config->name()) ));
 		}
 		if (!class_exists($handler,true)||!in_array(\LSYS\SMSSender\Handler::class,class_parents($handler))){
-		    throw new Exception(__("smssender handler [:handler] wong,not extends \LSYS\SMSSender\Handler",array("handler"=>$handler)));
+		    throw new Exception(__("smssender handler [:handler] wong,not extends \LSYS\SMSSender\Handler",array(":handler"=>$handler)));
 		}
 		$this->_handler=new $handler($config);
 		$this->_config=$config;
@@ -52,11 +52,11 @@ class SMSSender{
 	 */
 	public function send($mobile,$name,array $data=array(),$zone='86'){
 		$zones=array_keys(Utils::zone());
-		if (!in_array($zone,$zones)) throw new Exception(__("your submit zone is wrong [:zone]",array("zone"=>strip_tags($zone))));
+		if (!in_array($zone,$zones)) throw new Exception(__("your submit zone is wrong [:zone]",array(":zone"=>strip_tags($zone))));
 		if (isset($this->_zone_check[$zone])){
 			$check=call_user_func($this->_zone_check[$zone],$mobile);
 		}else $check=(strlen(preg_replace('/\D+/', '', $mobile))==11||strlen(preg_replace('/\D+/', '', $mobile))==7);
-		if (!$check) throw new Exception(__("this phone [:phone] is not valid",array("phone"=>strip_tags($mobile))));
+		if (!$check) throw new Exception(__("this phone [:phone] is not valid",array(":phone"=>strip_tags($mobile))));
 		return $this->_handler->send($zone,$mobile,$name,$data);
 	}
 	/**

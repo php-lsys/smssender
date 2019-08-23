@@ -8,4 +8,4 @@ include __DIR__."/MyHandler.php";
 // });
 //等价于\LSYS\SMSSender\DI::$config="sms.myhandler";
 $sender=\LSYS\SMSSender\DI::get()->smsSender();
-var_dump($sender->send("13510461174","name_dome",array('code'=>'8888','time'=>'1')));
+var_dump($sender->send("13510461174","name_dome",array(':code'=>'8888',':time'=>'1')));

@@ -2,22 +2,22 @@
 	"name" : "lsys/smssender",
 	"type" : "library",
 	"license": "Apache-2.0",
-
 	"description" : "lsys module smssender",
 	"autoload" : {
 		"psr-4" : {
-			"LSYS\\" : "src/classes/LSYS/"
+			"LSYS\\" : [
+				"src/common/classes/LSYS/",
+				"src/driver-alidayu/classes/LSYS/",
+				"src/driver-yuntongxun/classes/LSYS/"
+			]
 		},
 		"files" : [
-			"src/Bootstarp.php"
+			"src/common/Bootstarp.php",
+			"src/driver-yuntongxun/Bootstarp.php"
 		]
 	},
 	"require" : {
 		"php" : ">=5.5",
 		"lsys/config" : "~2.1.0"
-	},
-	"suggest": {
-		"lsys/smssender-alidayu" : "~2.1.0",
-		"lsys/smssender-yuntongxun" : "~2.1.0"
 	}
 }

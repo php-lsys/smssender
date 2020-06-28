@@ -10,7 +10,7 @@ class MyHandler extends Handler{
 	 * @param string $name
 	 * @param array $data
 	 */
-	public function send($zone,$mobile,$name,array $data=array()){
+	public function send(string $zone,string $mobile,string $name,array $data=array()){
 		//实现短信发送
 	}
 }

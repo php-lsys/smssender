@@ -48,9 +48,9 @@ class SMSSender{
 	 * @param array $data
 	 * @param string $zone
 	 * @throws Exception
-	 * @return string 
+	 * @return mixed
 	 */
-	public function send($mobile,$name,array $data=array(),$zone='86'){
+	public function send(string $mobile,string $name,array $data=array(),string $zone='86'){
 		$zones=array_keys(Utils::zone());
 		if (!in_array($zone,$zones)) throw new Exception(__("your submit zone is wrong [:zone]",array(":zone"=>strip_tags($zone))));
 		if (isset($this->_zone_check[$zone])){
@@ -68,7 +68,7 @@ class SMSSender{
 	 * @param string $zone
 	 * @param callable $callback
 	 */
-	public function addZoneCheck($zone,$callback){
+	public function addZoneCheck(string $zone,$callback){
 		if (!is_callable($callback))return false;
 		$this->_zone_check[$zone]=$callback;
 		return $this;

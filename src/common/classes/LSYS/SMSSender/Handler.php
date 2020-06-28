@@ -27,7 +27,7 @@ abstract class Handler{
 	 * @param string $mobile
 	 * @param string $name
 	 * @param array $data
-	 * @return string send msg id
+	 * @return mixed send msg id
 	 */
-	abstract public function send($zone,$mobile,$name,array $data=array());
+	abstract public function send(string $zone,string $mobile,string $name,array $data=array());
 }

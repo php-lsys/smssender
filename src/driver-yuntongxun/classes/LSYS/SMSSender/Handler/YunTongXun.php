@@ -29,7 +29,7 @@ class YunTongXun extends Handler{
 	 * @param string $name
 	 * @param array $data
 	 */
-	public function send($zone,$mobile,$name,array $data=array()){
+	public function send(string $zone,string $mobile,string $name,array $data=array()){
 		$s_id=$this->_config->get("sid");
 		$app_id=$this->_config->get("appid");
 		$token=$this->_config->get("token");

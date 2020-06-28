@@ -36,8 +36,9 @@ class AliDayu extends Handler{
 	 * @param string $mobile
 	 * @param string $name
 	 * @param array $data
+	 * @return mixed
 	 */
-	public function send($zone,$mobile,$name,array $data=array()){
+	public function send(string $zone,string $mobile,string $name,array $data=array()){
 		foreach ($data as &$v){
 			$v=strval($v);
 		}
